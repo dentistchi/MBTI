@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI Universe - 나만의 성격 분석</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button class="lang-btn active" data-lang="ko">🇰🇷 한국어</button>
+        <button class="lang-btn" data-lang="en">🇺🇸 English</button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="MBTI UNIVERSE">MBTI UNIVERSE</h1>
+                <p class="subtitle" data-ko="당신만을 위한 특별한 성격 분석" data-en="Your Personalized Personality Analysis">당신만을 위한 특별한 성격 분석</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">9,216</span>
+                        <span class="stat-label" data-ko="가지 조합" data-en="Combinations">가지 조합</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label" data-ko="유명 연예인" data-en="Celebrities">유명 연예인</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Input Form -->
+        <section class="input-section">
+            <div class="form-container glass">
+                <h2 class="section-title" data-ko="당신의 정보를 입력하세요" data-en="Enter Your Information">당신의 정보를 입력하세요</h2>
+                
+                <form id="personalityForm">
+                    <!-- MBTI Selection -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="icon">🧩</span>
+                            <span data-ko="MBTI 유형" data-en="MBTI Type">MBTI 유형</span>
+                        </label>
+                        <div class="mbti-grid">
+                            <button type="button" class="mbti-btn" data-mbti="INTJ">INTJ</button>
+                            <button type="button" class="mbti-btn" data-mbti="INTP">INTP</button>
+                            <button type="button" class="mbti-btn" data-mbti="ENTJ">ENTJ</button>
+                            <button type="button" class="mbti-btn" data-mbti="ENTP">ENTP</button>
+                            <button type="button" class="mbti-btn" data-mbti="INFJ">INFJ</button>
+                            <button type="button" class="mbti-btn" data-mbti="INFP">INFP</button>
+                            <button type="button" class="mbti-btn" data-mbti="ENFJ">ENFJ</button>
+                            <button type="button" class="mbti-btn" data-mbti="ENFP">ENFP</button>
+                            <button type="button" class="mbti-btn" data-mbti="ISTJ">ISTJ</button>
+                            <button type="button" class="mbti-btn" data-mbti="ISFJ">ISFJ</button>
+                            <button type="button" class="mbti-btn" data-mbti="ESTJ">ESTJ</button>
+                            <button type="button" class="mbti-btn" data-mbti="ESFJ">ESFJ</button>
+                            <button type="button" class="mbti-btn" data-mbti="ISTP">ISTP</button>
+                            <button type="button" class="mbti-btn" data-mbti="ISFP">ISFP</button>
+                            <button type="button" class="mbti-btn" data-mbti="ESTP">ESTP</button>
+                            <button type="button" class="mbti-btn" data-mbti="ESFP">ESFP</button>
+                        </div>
+                        <input type="hidden" id="mbti" name="mbti" required>
+                    </div>
+
+                    <!-- Birthday -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="icon">🎂</span>
+                            <span data-ko="생년월일" data-en="Date of Birth">생년월일</span>
+                        </label>
+                        <div class="date-inputs">
+                            <select id="year" name="year" required>
+                                <option value="" data-ko="년도" data-en="Year">년도</option>
+                            </select>
+                            <select id="month" name="month" required>
+                                <option value="" data-ko="월" data-en="Month">월</option>
+                            </select>
+                            <select id="day" name="day" required>
+                                <option value="" data-ko="일" data-en="Day">일</option>
+                            </select>
+                        </div>
+                        <div class="auto-result" id="autoResult"></div>
+                    </div>
+
+                    <!-- Blood Type -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="icon">🩸</span>
+                            <span data-ko="혈액형" data-en="Blood Type">혈액형</span>
+                        </label>
+                        <div class="blood-grid">
+                            <button type="button" class="blood-btn" data-blood="A">A<span data-ko="형" data-en="">형</span></button>
+                            <button type="button" class="blood-btn" data-blood="B">B<span data-ko="형" data-en="">형</span></button>
+                            <button type="button" class="blood-btn" data-blood="O">O<span data-ko="형" data-en="">형</span></button>
+                            <button type="button" class="blood-btn" data-blood="AB">AB<span data-ko="형" data-en="">형</span></button>
+                        </div>
+                        <input type="hidden" id="bloodType" name="bloodType" required>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">
+                        <span data-ko="✨ 나만의 분석 시작하기" data-en="✨ Start My Analysis">✨ 나만의 분석 시작하기</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Results Section (Hidden Initially) -->
+    <div id="resultsContainer" style="display: none;">
+        <!-- Results will be injected here -->
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
